@@ -1,0 +1,31 @@
+<header class="em-c-header em-js-header" id="Navigation" role="banner">
+    <div class="em-l-container em-c-header__inner">
+        <div class="em-c-header__body">
+        <div class="em-c-header__title-container">
+            <h1 class="em-c-header__title">
+            <a (click)="handleHeaderClick()" class="em-c-header__title-link" rel="home"><img [src]="logoUrl" alt=""></a>
+            </h1>
+        </div>
+        <button (click)="openHeader = !openHeader" [class.em-is-active]="openHeader" menu-button
+            class="em-c-btn em-c-btn--small em-c-btn--inverted em-c-header__nav-btn em-js-nav-trigger">
+            <div class="em-c-btn__inner">
+            <span class="em-c-btn__shape">
+                <span class="em-c-btn__icon em-js-btn-icon"></span>
+                <span class="em-c-btn__icon em-u-is-hidden em-js-btn-swap-icon"></span>
+            </span>
+            <span class="em-c-btn__text em-js-btn-label">Menu</span>
+            </div>
+        </button>
+        <div class="em-c-header__nav-container em-js-nav-panel" [class.em-is-active]="openHeader">
+            <!-- add em-is-active on click of menu button -->
+            <nav class="em-c-primary-nav" id="nav" role="navigation">
+            <ul class="em-c-primary-nav__list em-js-primary-nav-panel">
+                <li class="em-c-primary-nav__item"><a class="em-c-primary-nav__link" routerLink="/home" [class.em-is-active]="currentUrl === '/home'">Home</a></li>
+                <li class="em-c-primary-nav__item"><a class="em-c-primary-nav__link" [routerLink]="['/solutions']" [queryParams]="{ isDmv: 'true'}" [class.em-is-active]="currentUrl === '/solutions'">Solutions</a></li>
+                <li class="em-c-primary-nav__item"><a class="em-c-primary-nav__link" [routerLink]="['/newsletters']" [class.em-is-active]="currentUrl === '/newsletters'">Newsletters</a></li>
+            </ul>
+            </nav>
+        </div>
+        </div>
+    </div>
+</header>

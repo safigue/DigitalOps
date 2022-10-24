@@ -1,0 +1,108 @@
+.em-c-hero.link-section {
+  background: #ffffff;
+}
+
+.em-c-hero.link-section .em-c-hero__body {
+  background: none;
+  padding: 2rem 0;
+}
+
+.em-c-hero.link-section .em-l-grid__item {
+  display: block;
+}
+
+.link-panel a {
+  display: flex;
+  transition: 0.3s ease;
+  /* border: 1px solid #3A397B; */
+  box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, .12);
+  font-size: 30px;
+  color: #3A397B;
+  text-align: center;
+  font-weight: bold;
+  letter-spacing: 1px;
+  word-break: break-word;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  height: 100%;
+  min-height: 200px;
+  /* word-break: break-word; */
+  padding: 40px 20px;
+}
+
+.link-panel a:after {
+  content: "";
+  width: 18px;
+  height: 18px;
+  background: url(../../../../assets/images/right-chevron-purple.png) no-repeat;
+  display: inline-block;
+  background-position: 50%;
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+/* Styles for Edge */
+
+/* _:-ms-lang(x), _:-webkit-full-screen, .link-panel a {
+    word-break: break-all;
+} */
+
+/* Styles for IE10+ */
+
+@media screen and (-ms-high-contrast: active),
+(-ms-high-contrast: none) {
+  .link-panel a {
+    height: 160px;
+    /* -ms-word-break: break-all; */
+    padding: 40px 20px;
+    overflow: hidden;
+  }
+
+  .link-panel {
+    position: relative;
+  }
+}
+
+.link-panel a img {
+  flex-basis: 100%;
+}
+
+.link-panel a:hover {
+  box-shadow: 0 5px 15px -2px rgba(0, 0, 0, .3);
+}
+
+.site-links .link-panel a::after{
+  min-width: 18px;
+}
+
+@media (min-width:1023px) {
+  .em-c-hero.link-section .em-c-hero__body {
+    padding: 3.55rem 0;
+  }
+}
+
+@media(max-width: 751px) {
+  .em-c-hero.link-section .em-l-grid__item {
+    width: 50%;
+  }
+
+  .em-c-hero.link-section .em-l-grid.em-l-grid--5up {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -0.5rem;
+  }
+
+  .em-c-hero.link-section .em-c-hero__body {
+    padding: 15px 0;
+  }
+}
+
+@media(max-width: 540px) {
+  .em-c-hero.link-section .em-l-grid__item {
+    width: 100%;
+  }
+}

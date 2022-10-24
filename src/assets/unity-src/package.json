@@ -1,0 +1,43 @@
+{
+  "_from": "git+https://git@gitlab.softwaystaging.com/Exxon/unity-src.git",
+  "_id": "unity-src@1.0.0",
+  "_inBundle": false,
+  "_integrity": "",
+  "_location": "/unity-src",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "git",
+    "raw": "unity-src@git+https://git@gitlab.softwaystaging.com/Exxon/unity-src.git",
+    "name": "unity-src",
+    "escapedName": "unity-src",
+    "rawSpec": "git+https://git@gitlab.softwaystaging.com/Exxon/unity-src.git",
+    "saveSpec": "git+https://git@gitlab.softwaystaging.com/Exxon/unity-src.git",
+    "fetchSpec": "https://git@gitlab.softwaystaging.com/Exxon/unity-src.git",
+    "gitCommittish": null
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "git+https://git@gitlab.softwaystaging.com/Exxon/unity-src.git#b8e0500a48a393715ab893452c62d5e3c3c7b063",
+  "_spec": "unity-src@git+https://git@gitlab.softwaystaging.com/Exxon/unity-src.git",
+  "_where": "/Users/shadab.mehdi/Documents/work/XSEIS-App",
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": "Repository to store all angular-unity projects related source files.",
+  "keywords": [
+    "unity",
+    "angular1",
+    "source"
+  ],
+  "license": "ISC",
+  "main": "index.js",
+  "name": "unity-src",
+  "repository": {
+    "type": "git",
+    "url": "git@gitlab.softwaystaging.com:Exxon/unity-src.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "1.0.0"
+}

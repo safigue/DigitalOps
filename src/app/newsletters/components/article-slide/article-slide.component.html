@@ -1,0 +1,19 @@
+<div class="article">
+    <div class="article__image" 
+        [ngStyle]="{'background-image': getBackgroundImageUrl(item.image)}"></div>
+    <div class="article__content">
+        <h3 class="article__title">{{item.title}}</h3>
+        <div class="discription" #descriptionContainer [class.ellipses]="showEllipsis">
+            <p #descriptionText>{{ item.shortDescription }}</p>
+        </div>
+        <a class="read-more" (click)="showArticleModal(item)">{{ readOrWatch }}
+        <svg xmlns="http://www.w3.org/2000/svg" class="em-c-icon em-c-icon--medium icon-svg"
+            viewBox="0 0 24 24" data-url="/images/24/em-icons.svg#chevron-right" data-icon="chevron-right"
+            version="1.1">
+            <title>chevron-right</title>
+            <path fill="currentColor"
+            d="M 9.483 21.914 l -1.4 -1.431 l 8.7 -8.492 l -8.7 -8.474 l 1.4 -1.431 l 8.7 8.491 a 2 2 0 0 1 0.009 2.837 Z" />
+        </svg>
+        </a>
+    </div>
+</div>

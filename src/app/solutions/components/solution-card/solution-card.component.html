@@ -1,0 +1,12 @@
+<div class="solution" (click)="showModal()">
+    <div class="solution__image" [style.backgroundImage]="_solution.imgSrc"></div>
+    <div class="solution__content">
+        <h3>{{ _solution.Title }}</h3>
+        <div class="description">
+            <p [clamp]="2">
+                {{ _solution.shortDescription}}
+            </p>
+        </div>
+        <a class="readmore__contextual__link">Read more</a>
+    </div>
+</div>

@@ -1,0 +1,67 @@
+.solution {
+  background: #ffffff;
+  box-shadow: 0 8px 15px 0 rgba(0, 0, 0, .1);
+  position: relative;
+  height: 100%;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.solution:hover {
+  box-shadow: 0 10px 15px 0 rgba(0, 0, 0, .15);
+}
+
+.solution__image {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  height: 120px;
+  background-size: cover !important;
+}
+
+.solution__image:before {
+  content: " ";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: -webkit-linear-gradient(-45deg, rgba(0, 163, 224, 0.2) 0%, rgba(58, 57, 123, 0.6) 100%);
+  background: -webkit-linear-gradient(315deg, rgba(0, 163, 224, 0.2) 0%, rgba(58, 57, 123, 0.6) 100%);
+  background: linear-gradient(135deg, rgba(0, 163, 224, 0.2) 0%, rgba(58, 57, 123, 0.6) 100%);
+  opacity: 1;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#3d00a3e0', endColorstr='#c23a397b', GradientType=1);
+  -webkit-transition: all ease 0.25s;
+  transition: all ease 0.25s;
+}
+
+.solution:hover .solution__image:before {
+  opacity: 0;
+}
+
+.solution__content {
+  padding: 15px 15px 30px;
+}
+
+.solution__content h3 {
+  font-size: 20px;
+  line-height: 26px;
+  margin: 0 0 15px;
+  color: #5a5a5a;
+}
+
+.solution__content .description {
+  font-size: 16px;
+  line-height: 24px;
+  color: #272727;
+  height:53px;
+  overflow: hidden;
+}
+
+.readmore__contextual__link {
+  text-decoration: underline;
+}
+
+::ng-deep .solution__content .description p:last-child {
+  margin: 0;
+}

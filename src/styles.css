@@ -1,0 +1,45 @@
+/* You can add global styles to this file, and also import other style files */
+
+body {
+    display: block;
+}
+
+.em-c-hero__body {
+    background: none;
+}
+
+.em-js .em-c-modal {
+    display: none;
+}
+
+.em-js .em-c-modal.em-is-active {
+    display: flex;
+}
+
+.icon-arrow {
+    position: relative;
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background: #ffffff;
+    border-radius: 15px;
+}
+
+.icon-arrow:before {
+    content: "";
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 4px 0 4px 6px;
+    border-color: transparent transparent transparent #3a397b;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin: -4px 0 0 -2px;
+}
+
+.description ul, .description ol {
+    list-style: disc;
+    padding-left: 35px;
+    margin-bottom: 1rem;
+}

@@ -1,0 +1,40 @@
+<a class="content-index-link" (click)="openContentMenu()">
+  <svg xmlns="http://www.w3.org/2000/svg" class="em-c-icon em-c-icon--medium icon-svg" viewBox="0 0 24 24"
+    data-url="/images/24/em-icons.svg#hamburger" data-icon="hamburger" version="1.1">
+    <title>hamburger</title>
+    <rect fill="currentColor" y="5" width="23" height="2" />
+    <rect fill="currentColor" y="11" width="23" height="2" />
+    <rect fill="currentColor" y="17" width="23" height="2" />
+  </svg>
+  Content index
+</a>
+<div class="content-index" [ngClass]="{'em-is-active': openContentIndex}">
+  <button class="content-index__close" (click)="closeContentMenu()">
+    <img [src]="closeIcon" alt="">
+  </button>
+  <div class="content-index__menu">
+    <ul class="em-c-accordion">
+      <li class="em-c-accordion__item" [class.em-is-active]="year.isTabActive" [id]="year.name"
+        *ngFor="let year of _years; let yearIndex=index;">
+        <div class="em-c-accordion__header">
+          <a class="em-c-accordion__title" [class.em-is-active]="year.isTabActive"
+            (click)="setSelectedYear(year, _years)">{{ year.name }}</a>
+        </div>
+        <!-- end em-c-accordion__header -->
+        <div class="em-c-accordion__body">
+          <div class="month-accordian" [class.em-is-active]="month.isTabActive" [id]="year.name + month.name"
+            *ngFor="let month of year.months; let monthIndex=index">
+            <label class="month__item" (click)="setSelectedMonth(month, year)">{{ month.name }}</label>
+            <ul class="month-list">
+              <li class="month-list__item" *ngFor="let article of month.articles">
+                <a class="month-list__link" (click)="openArticleModal(article)">{{ article.title }}</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <!-- end em-c-accordion__body -->
+      </li>
+    </ul>
+    <!-- end em-c-accordion -->
+  </div>
+</div>

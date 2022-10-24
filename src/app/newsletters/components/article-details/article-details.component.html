@@ -1,0 +1,35 @@
+<div class="em-c-modal articles-modal" [class.em-is-active]="isOpen">
+    <div class="em-c-modal__window em-js-modal-window">
+        <div class="em-c-modal__header">
+            <p class="link-copy-message" *ngIf="linkCopiedMessage.length > 0" [@fadeInOut]>{{ linkCopiedMessage }}</p>
+            <button class="em-c-btn em-c-modal__close-btn" (click)="hideModal()"></button>
+            <!-- end em-c-btn -->
+        </div>
+        <!-- end em-c-modal__header -->
+        <div class="em-c-modal__body">
+            <div class="em-l-grid em-l-grid--2up article-details" [class.video]="article.hasVideo">
+                <div class="em-l-grid__item">
+                    <div class="articles__image">
+                        <a class="share-link" (click)="copyArticleLinkToClipboard()">Share story</a>
+                        <img *ngIf="!article.hasVideo" [src]="article.image" alt="">
+                        <video width="100%" *ngIf="article.hasVideo && !isYoutubeVideo(article.videoUrl)"
+                            controls="controls">
+                            <source [src]="article.videoUrl" type="video/mp4">
+                        </video>
+                        <iframe *ngIf="article.hasVideo && isYoutubeVideo(article.videoUrl)" width="100%"
+                            [src]="safeVideoUrl" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                </div>
+                <div class="em-l-grid__item">
+                    <div class="articles__content">
+                        <a class="share-link" (click)="copyArticleLinkToClipboard()">Share story</a>
+                        <h3 class="em-c-modal__title">{{ article.title }}</h3>
+                        <div class="description" [innerHtml]="article.description">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end em-c-modal__window -->
+</div>

@@ -1,0 +1,7 @@
+<app-header [logoUrl]="headerLogoUrl"></app-header>
+<app-articles 
+    *ngIf="isDataFetched"
+    [feedback]="feedbackLink" 
+    [subscribe]="subscribeLink"
+    [years]="years"></app-articles>
+<app-footer></app-footer>

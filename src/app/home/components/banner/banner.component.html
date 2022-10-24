@@ -1,0 +1,19 @@
+<div class="em-c-hero banner-section">
+    <div class="em-c-hero__body">
+        <div class="em-l-container">
+            <div class="em-l-grid em-l-grid--2up">
+                <div class="em-l-grid__item">
+                    <div class="banner__text">
+                        <h1>{{ banner?.Title }}</h1>
+                        <div class="description" [innerHtml]="banner?.Description"></div>
+                    </div>
+                </div>
+                <div class="em-l-grid__item">
+                    <div class="banner__image">
+                        <img src="{{ banner?.imgSrc }}" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> 

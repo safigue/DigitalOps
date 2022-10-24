@@ -1,0 +1,35 @@
+<div class="em-c-hero search-section">
+  <div class="em-c-hero__body">
+    <div class="em-l-container">
+      <div class="search-panel">
+        <input type="text" placeholder="search..." [ngModel]="searchQuery"
+          (ngModelChange)="onSearchQueryChange($event)">
+        <button><img [src]="searchIcon" alt=""></button>
+      </div>
+      <div class="external-link-panel">
+        <ul>
+          <li *ngFor="let link of externalLinks">
+            <a *ngIf="!checkDmvOrTurnaround(link.url)" class="external-links" [href]="link.url" appExternalLink [url]="link.url">
+              {{ link.Title }}
+              <svg xmlns="http://www.w3.org/2000/svg" class="em-c-icon em-c-icon--medium icon-svg" viewBox="0 0 24 24"
+                data-url="/images/24/em-icons.svg#chevron-right" data-icon="chevron-right" version="1.1">
+                <title>chevron-right</title>
+                <path fill="currentColor"
+                  d="M 9.483 21.914 l -1.4 -1.431 l 8.7 -8.492 l -8.7 -8.474 l 1.4 -1.431 l 8.7 8.491 a 2 2 0 0 1 0.009 2.837 Z" />
+              </svg>
+            </a>
+            <a *ngIf="checkDmvOrTurnaround(link.url)" [routerLink]="['/solutions']" [queryParams]="{ isDmv: 'true'}" class="external-links">
+              Digital Manufacturing Solutions
+              <svg xmlns="http://www.w3.org/2000/svg" class="em-c-icon em-c-icon--medium icon-svg" viewBox="0 0 24 24"
+                data-url="/images/24/em-icons.svg#chevron-right" data-icon="chevron-right" version="1.1">
+                <title>chevron-right</title>
+                <path fill="currentColor"
+                  d="M 9.483 21.914 l -1.4 -1.431 l 8.7 -8.492 l -8.7 -8.474 l 1.4 -1.431 l 8.7 8.491 a 2 2 0 0 1 0.009 2.837 Z" />
+              </svg>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

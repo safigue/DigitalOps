@@ -1,0 +1,143 @@
+<div class="em-c-modal solution-modal" [class.em-is-active]="showModal">
+    <div class="em-c-modal__window em-js-modal-window">
+        <div class="em-c-modal__header" [style.backgroundImage]="modalData?.imgSrc">
+            <div class="solution__content">
+                <h3>{{ modalData.Title }}</h3>
+                <div class="description" [innerHtml]="modalData.Description">
+                </div>
+            </div>
+            <button class="em-c-btn em-c-modal__close-btn" (click)="hideModal()">
+                <img [src]="closeIcon" alt="">
+            </button>
+            <!-- end em-c-btn -->
+        </div>
+        <!-- end em-c-modal__header --> 
+        <div class="em-c-modal__body">
+            <div class="solution-info" [class.em-is-active]="openStatusModal">
+                <div class="em-l-grid em-l-grid--3up solution-modal__body">
+                    <div class="em-l-grid__item">
+                        <div class="status-panel">
+                            <a class="status-link" (click)="openStatusModal = !openStatusModal">Show all status</a>
+                            <h3 class="section__title">Status</h3>
+                            <table class="status__table">
+                                <tbody>
+                                    <tr *ngFor="let status of statusCounts | keyvalue">
+                                        <td>
+                                            <span class="status__color"
+                                                [ngStyle]="{'background-color': getStatusColor(status.key)}"></span>
+                                        </td>
+                                        <td class="has-tooltip">{{ status.key }}
+                                            <span class="tooltip">{{ getStatusDescription(status.key)}}</span></td>
+                                        <td>{{ status.value }}</td>
+                                        <td>sites</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="status-panel">
+                            <h3 class="section__title">Value</h3>
+                            <div class="description" [innerHtml]="modalData.Value">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="em-l-grid__item">
+                        <div class="solution__info" *ngIf="modalData.Complexity !== 'None'">
+                            <h3>Complexity to implement</h3>
+                            <p>{{ modalData.Complexity }}</p>
+                        </div>
+                        <div class="solution__info">
+                            <h3>Device dependency</h3>
+                            <ul class="solution__list">
+                                <li 
+                                    *ngFor="let device of modalData['Device Dependency']?.results"
+                                    [className]="'icon-' + device.toLowerCase()">
+                                    {{ device }}
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="solution__info">
+                            <h3>Primary business user group</h3>
+                            <p 
+                                *ngFor="let use of modalData['Primary Business User Group']?.results">
+                                {{ use }}
+                            </p>
+                        </div>
+                        <div class="solution__info" *ngIf="modalData['Infrastructure Dependency']">
+                            <h4>Infrastructure Dependency</h4>
+                            <p *ngFor="let infra of modalData['Infrastructure Dependency']?.results">
+                                {{ infra }}
+                            </p>
+                        </div>
+                    </div>
+                    <div class="em-l-grid__item">
+                        <div class="contact-card" *ngFor="let contact of contacts" >
+                            <div class="contact__img" 
+                                [id]="contact.email"
+                                appLyncPresence [userEmail]="contact.email"
+                                [ngStyle]="{'background-image': getProfilePicture(contact) }"></div>
+                            <div class="contact__info">
+                                <h3>{{ contact.title }}</h3>
+                                <p>{{ contact.designation }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="status-info" [class.em-is-active]="openStatusModal">
+                <div class="status-info__head">
+                    <a class="status-link" (click)="openStatusModal = !openStatusModal">Hide all
+                        status</a>
+                    <h3>All sites status</h3>
+                    <div class="status-search-wrapper">
+                        <ul class="status-progress-list">
+                            <li *ngFor="let status of statusColors | keyvalue">
+                                <span class="status__color"
+                                    [ngStyle]="{'background-color': getStatusColor(status.key) }"></span>
+                                {{ status.key }}
+                            </li>
+                        </ul>
+                        <div class="status-info__search">
+                            <div class="search-panel"><input type="text" placeholder="Search..."
+                                    [(ngModel)]="statusSearchQuery" (ngModelChange)="statusSearchQueryChange($event)">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="status-info__body">
+
+                    <div class="status-data">
+                        <table class="status-data__table">
+                            <thead>
+                                <tr>
+                                    <th>Status</th>
+                                    <th>Site</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngIf="statusList.length === 0">
+                                    <td></td>
+                                    <td>No Sites Found</td>
+                                </tr>
+                                <tr *ngFor="let status of statusList">
+                                    <td>
+                                        <span class="status__color"
+                                            [ngStyle]="{'background-color': getStatusColor( status[getObjectProperty(status)] ) }"></span>
+                                    </td>
+                                    <td>{{ getObjectProperty(status) }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end em-c-modal__body -->
+        <div class="em-c-modal__footer em-c-text-passage em-c-text-passage--small">
+            <div class="external-link-panel">
+                <div class="external-link" [innerHtml]="modalData['Activity Link']"></div>
+            </div>
+        </div>
+        <!-- end em-c-modal__footer -->
+    </div>
+    <!-- end em-c-modal__window -->
+</div>

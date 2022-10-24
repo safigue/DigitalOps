@@ -1,0 +1,23 @@
+<div class="em-c-hero link-section">
+  <div class="em-c-hero__body">
+    <div class="em-l-container">
+      <div class="em-l-grid em-l-grid--5up site-links">
+        <div class="em-l-grid__item" *ngFor="let link of links; let i = index;">
+          <div class="link-panel">
+            <a [href]="link.url" appExternalLink [url]="link.url">
+              {{ link.Title }}
+              <!-- <span>
+              <img src="assets/images/right-chevron-purple.png" width="18" height="18" /></span> -->
+              <!-- <svg xmlns="http://www.w3.org/2000/svg" class="em-c-icon em-c-icon--medium icon-svg" viewBox="0 0 24 24"
+                data-url="/images/24/em-icons.svg#chevron-right" data-icon="chevron-right" version="1.1">
+                <title>chevron-right</title>
+                <path fill="currentColor"
+                  d="M 9.483 21.914 l -1.4 -1.431 l 8.7 -8.492 l -8.7 -8.474 l 1.4 -1.431 l 8.7 8.491 a 2 2 0 0 1 0.009 2.837 Z" />
+              </svg> -->
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

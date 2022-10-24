@@ -1,0 +1,48 @@
+<div class="em-c-hero article-section">
+  <div class="em-c-hero__body">
+    <div class="em-l-container">
+      <app-content-index [years]="_years"></app-content-index>
+      <div class="article-panel">
+        <div class="artile-section__head">
+          <button class="previous__btn" 
+            [class.em-is-disabled]="disablePreviousMonthButton"
+            [disabled]="disablePreviousMonthButton" 
+            (click)="changeCurrentMonth(1)"></button>
+          <h1 class="artile-section__title">{{ activeMonth?.name }} <span>{{ activeYear?.name }}</span></h1>
+          <button class="next__btn" 
+            [class.em-is-disabled]="disableNextMonthButton" 
+            [disabled]="disableNextMonthButton"
+            (click)="changeCurrentMonth(-1)"></button>
+          <p *ngIf="!isUserSubscribed">Stay informed, <a (click)="addToSubscribersList()" class="subscribe-link">subscribe</a> to our newsletter.</p>
+          <p *ngIf="isUserSubscribed"><a (click)="removeFromSubscribersList()" class="subscribe-link">Unsubscribe</a> to our newsletter.</p>
+
+          <p class="subscribe-alert" *ngIf="subscribeAlert.length > 0" [@fadeInOut]>{{ subscribeAlert }}</p>
+        </div>
+        <div class="article-slider">
+          <div class="swiper-container" [swiper]="config" #swiper>
+            <div class="swiper-wrapper" [class.less-than-4]="slides.length < 4">
+              <div class="swiper-slide" *ngFor="let item of slides; trackBy: trackByFn">
+                <app-article-slide [article]="item"></app-article-slide>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-pagination" [hidden]="!showNavigation"></div>
+          <div class="swiper-button-prev" [hidden]="!showNavigation"></div>
+          <div class="swiper-button-next" [hidden]="!showNavigation"></div>
+        </div>
+        <div class="newsletter-footer">
+
+          <a [href]="feedback.url" target="_blank" class="feedback-btn">{{ feedback.title }}
+            <svg xmlns="http://www.w3.org/2000/svg" class="em-c-icon em-c-icon--medium icon-svg" viewBox="0 0 24 24"
+              data-url="/images/24/em-icons.svg#chevron-right" data-icon="chevron-right" version="1.1">
+              <title>chevron-right</title>
+              <path fill="currentColor"
+                d="M 9.483 21.914 l -1.4 -1.431 l 8.7 -8.492 l -8.7 -8.474 l 1.4 -1.431 l 8.7 8.491 a 2 2 0 0 1 0.009 2.837 Z" />
+            </svg>
+          </a>
+        </div>
+      </div>
+      <app-article-details *ngIf="isModalOpen"></app-article-details>
+    </div>
+  </div>
+</div>
